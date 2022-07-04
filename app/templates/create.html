@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 
     {% block content %}
+    {% if request.user.is_authenticated %}
         <form name="form-users" id="formUsers" method="post" action="/store/">
             <div class="col-6 mt-4 m-auto">
                 {% if msg %}
@@ -16,4 +17,8 @@
                 <input class="btn btn-primary mt-4" type="submit" value="Cadastrar">
             </div>
         </form>
+    {% else %}
+        Você não está logado.<br>
+    <a href="/">Voltar ao menu principal</a>
+    {% endif %}
     {% endblock %}
