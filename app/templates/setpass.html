@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+    {% block content %}
+        <form name="formPainel" id="formUsers" method="post" action="/changePassword/">
+            <div class="col-6 mt-4 m-auto">
+                {% if msg %}
+                    <div class="alert {{class}}" >
+                        {{msg}}
+                    </div>
+                {% endif %}
+                {% csrf_token %}
+                <input class="form-control mt-4" type="password" name="password" id="password" placeholder="Nova senha:">
+                <input class="form-control mt-4" type="password" name="password-conf" id="password-conf" placeholder="Digite de novo:">
+                <input class="btn btn-primary mt-4" type="submit" value="Trocar senha">
+            </div>
+        </form>
+    {% endblock %}
